@@ -9,4 +9,18 @@ As their data engineer, you are tasked with building an ETL pipeline that extrac
 ## Project Description
 In this project, you'll apply what you've learned on data warehouses and AWS to build an ETL pipeline for a database hosted on Redshift. To complete the project, you will need to load data from S3 to staging tables on Redshift and execute SQL statements that create the analytics tables from these staging tables.
 
+## How to Run
+Prerequisites: Configuration file with login details for an active AWS Redshift cluster and ARN for an IAM role with S3 read access.
 
+- Run sql_queries.py from terminal or python console to load table create and insert queries.
+- Run create_tables.py from terminal or python console to create staging and analytical tables.
+- Run etl.py from terminal or python console to process and load data into data warehouse.
+
+## Project structure
+This is the project structure, if the bullet contains /
+means that the resource is a folder:
+
+- create_tables.py - This script will drop old tables (if exist) ad re-create new tables
+- etl.py - This script executes the queries that extract JSON data from the S3 bucket and ingest them to Redshift
+- sql_queries.py - This file contains variables with SQL statement in String formats, partitioned by CREATE, DROP, COPY and INSERT statements
+- dhw.cfg - Configuration file used that contains info about Redshift, IAM and S3
